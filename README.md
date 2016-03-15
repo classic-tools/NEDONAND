@@ -7,4 +7,4 @@ Hardware is PUBLIC DOMAIN (including Logisim simulation)
 
 Author: Shaos
 
-http://nedonand.com (link to Hackaday project)
+http://nedonand.com (forward to Hackaday project)
