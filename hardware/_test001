@@ -1,5 +1,5 @@
 v2.0 raw
-# test codes for Logisim simulation of "NEDONAND lite"
+# test codes for Logisim simulation of "NEDONAND LITE"
 
 #   x0    x1    x2    x3    x4    x5    x6    x7    x8    x9    xA    xB    xC    xD    xE    xF  
 #0x A=0   A=1   A=2   A=3   A=4   A=5   A=6   A=7   A=8   A=9   A=10  A=11  A=12  A=13  A=14  A=15  0x
@@ -10,7 +10,7 @@ v2.0 raw
 #5x A=80  A=81  A=82  A=83  A=84  A=85  A=86  A=87  A=88  A=89  A=90  A=91  A=92  A=93  A=94  A=95  5x
 #6x A=96  A=97  A=98  A=99  A=100 A=101 A=102 A=103 A=104 A=105 A=106 A=107 A=108 A=109 A=110 A=111 6x
 #7x A=112 A=113 A=114 A=115 A=116 A=117 A=118 A=119 A=120 A=121 A=122 A=123 A=124 A=125 A=126 A=127 7x
-#8x N/A   N/A   N/A   N/A   N/A   N/A   N/A   N/A   NOP   A=~A  A=B   A=C   A=D   A=E   A=F   A=G   8x
+#8x HALT  N/A   N/A   N/A   N/A   N/A   N/A   N/A   NOP   A=~A  A=B   A=C   A=D   A=E   A=F   A=G   8x
 #9x B=0   B=A   B=~B  B=C   B=D   B=E   B=F   B=G   C=0   C=A   C=B   C=~C  C=D   C=E   C=F   C=G   9x
 #Ax D=0   D=A   D=B   D=C   D=~D  D=E   D=F   D=G   E=0   E=A   E=B   E=C   E=D   E=~E  E=F   E=G   Ax
 #Bx F=0   F=A   F=B   F=C   F=D   F=E   F=~F  F=G   G=0   G=A   G=B   G=C   G=D   G=E   G=F   G=~G  Bx 
@@ -32,9 +32,11 @@ v2.0 raw
 # bit 1: P9 - higher bits to set PC in case of jump (reg.G)
 # bit 0: P8 /
 
-# clean all registers and jump to main (100)
+# clear all registers
 00 90 98 A0 A8 B0
 # [6] main program
+00 # A=0
+B1 # F=A
 0A # A=10
 99 # C=A
 0B # A=11
@@ -42,10 +44,54 @@ D8 # SEC (XOR 0)
 EB # SBC C
 91 # B=A
 99 # C=A
-AE # E=F
 A6 # D=F
+AE # E=F
+06 # A="1"
+80 # HALT
+# must be "1" 01 01 18 18
+00 # A=0
+B1 # F=A
+0A # A=10
+99 # C=A
+0B # A=11
+D8 # SEC (XOR 0)
+EB # SBC C
+A6 # D=F
+AE # E=F
+91 # B=A
+99 # C=A
+5B # A="2"
+80 # HALT
+# must be "2" 01 01 18 18
+00 # A=0
+B1 # F=A
+0A # A=10
+99 # C=A
+0B # A=11
+D8 # SEC (XOR 0)
+A6 # D=F
+EB # SBC C
+AE # E=F
+91 # B=A
+99 # C=A
+4F # A="3"
+80 # HALT
+# must be "3" 01 01 08 18
+00 # A=0
+B1 # F=A
+0A # A=10
+99 # C=A
+0B # A=11
+B6 # F=~F (opcode may be unavailable in future)
+A6 # D=F
+EB # SBC C
+AE # E=F
+91 # B=A
+99 # C=A
+66 # A="4"
+80 # HALT
+# must be "4" 01 01 ff ff
 
-10 # A=16
+# goto 0
+00 # A=0
 B9 # G=A
-
-# must be 10 01 01 18 18
