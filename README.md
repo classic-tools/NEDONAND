@@ -5,7 +5,7 @@ Software is covered by GPL v3
 
 Hardware is PUBLIC DOMAIN (including Logisim simulation)
 
-![](http://nedopc.io/nedopc/image/nands-main.jpg "NEDONAND")
+![](https://raw.githubusercontent.com/shaos/nedonand/master/hardware/nands-main.jpg "NEDONAND")
 
 Created by Shaos
 
