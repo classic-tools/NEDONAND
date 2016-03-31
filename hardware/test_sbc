@@ -93,5 +93,4 @@ AE # E=F
 # must be "4" 01 01 ff ff
 
 # goto 0
-00 # A=0
-B9 # G=A
+B8 # G=0
