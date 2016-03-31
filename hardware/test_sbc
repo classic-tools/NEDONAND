@@ -35,8 +35,7 @@ v2.0 raw
 # clear all registers
 00 90 98 A0 A8 B0
 # [6] main program
-00 # A=0
-B1 # F=A
+B0 # F=0
 0A # A=10
 99 # C=A
 0B # A=11
@@ -49,8 +48,7 @@ AE # E=F
 06 # A="1"
 80 # HALT
 # must be "1" 01 01 18 18
-00 # A=0
-B1 # F=A
+B0 # F=0
 0A # A=10
 99 # C=A
 0B # A=11
@@ -63,8 +61,7 @@ AE # E=F
 5B # A="2"
 80 # HALT
 # must be "2" 01 01 18 18
-00 # A=0
-B1 # F=A
+B0 # F=0
 0A # A=10
 99 # C=A
 0B # A=11
@@ -77,8 +74,7 @@ AE # E=F
 4F # A="3"
 80 # HALT
 # must be "3" 01 01 08 18
-00 # A=0
-B1 # F=A
+B0 # F=0
 0A # A=10
 99 # C=A
 0B # A=11
@@ -93,4 +89,5 @@ AE # E=F
 # must be "4" 01 01 ff ff
 
 # goto 0
+B0 # F=0
 B8 # G=0
